@@ -1,0 +1,59 @@
+.post_form_wrapper{
+    box-shadow: 0 3px 6px 3px #00000029;
+    width: 60%;
+    margin: 15px auto;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+.form_title{
+    font-size: 40px;
+}
+.post_form_wrapper form input , .post_form_wrapper form textarea{
+    width: 100%;
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.post_form_wrapper form input {
+    height: 50px;
+}
+.post_form_wrapper form textarea {
+    height: 150px;
+}
+.post_form_wrapper form button {
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    padding: 5px 16px;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: -moz-fit-content;
+    width: fit-content
+}
+.form_error{
+    margin: 0 0 10px 0;
+    font-size: 17px;
+    color: red;
+}
+.submit_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Responsive Style Starts*/
+@media screen and (min-width:768px) and (max-width:1199.9px) { 
+    .post_form_wrapper{
+        width:75%;;
+     } 
+ }
+@media screen and (max-width:767.9px){
+    .post_form_wrapper{
+       width: 100%;;
+    }
+ }
+/* Responsive Style Ends*/

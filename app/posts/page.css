@@ -1,0 +1,66 @@
+.posts_wrapper{
+    padding: 0 20px 20px 20px;  
+}
+.posts_wrapper >div:first-of-type{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.posts_wrapper_title{
+    font-size: 45px;
+    padding: 0 10px;
+}
+.create_post_title{
+    color: white;
+    font-size: 18px;
+    background-color: green;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.create_post_title:hover{
+    color: green;
+    background-color: white;
+    transition: all .5s ease-in-out;
+}
+.posts_listing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.posts_item{
+    width: 31%;
+    margin:0 25px 25px 0;
+    border-radius: 4px;
+   
+}
+.back_home{
+    margin-bottom: 30px;
+}
+/* Responsive Style Starts*/
+@media screen and (min-width:768px) and (max-width:1199.9px) {
+   
+    .create_post_title{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .posts_item{
+        width: 48%;
+        margin:  0 10px 25px 0;
+    }  
+ }
+ @media screen and (max-width:767.9px){
+    .posts_wrapper >div:first-of-type{
+        flex-direction: column;
+    }
+    .create_post_title{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .posts_item{
+        width: 100%;
+        margin:  0 0 25px 0;
+    }  
+ }
+/* Responsive Style Ends*/
