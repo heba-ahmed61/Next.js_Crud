@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import Header from "./components/Header/Header";
 import Providers from "./providers";
+import ProtectedRoutes from './components/ProtectedRoutes/index'
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Providers>
         <Header/>
-        {children}
+          <ProtectedRoutes>
+          {children}
+          </ProtectedRoutes>
         </Providers>
       </body>
     </html>
