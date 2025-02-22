@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 import BackBtn from "../BackBtn/BackBtn";
 const PostForm = ({itemData}) => {
   const router = useRouter();
-  const [lastPageNum, setLastPageNum] = useState( localStorage.getItem('lastPage'))
-  useEffect(() => {
-   setLastPageNum( localStorage.getItem('lastPage'))
-  },[ localStorage.getItem('lastPage')])
+  // const [lastPageNum, setLastPageNum] = useState( localStorage.getItem('lastPage'))
+  // useEffect(() => {
+  //  setLastPageNum( localStorage.getItem('lastPage'))
+  // },[ localStorage.getItem('lastPage')])
   // Form Validation Starts
   const validation = yup.object().shape({
     title: yup.string().required("Required"),
