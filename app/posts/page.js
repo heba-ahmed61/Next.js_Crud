@@ -7,6 +7,7 @@ const Posts = async ({searchParams}) => {
   const posts = await fetchPosts(searchParams?.page);
   return (
     <>
+    <Link href={'/about'} >about</Link>
     <div className="posts_wrapper">
       <div>
         <h1 className="posts_wrapper_title">Bolg Posts</h1>

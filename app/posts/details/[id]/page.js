@@ -1,8 +1,8 @@
-import { getPostDetails } from "@/app/actions/apis"
-import PostCard from "@/app/components/PostCard/PostCard"
+import { getPostDetails } from "../../../actions/apis"
+import PostCard from "../../../components/PostCard/PostCard"
 import Link from "next/link"
 import './details.css'
-import BackBtn from "@/app/components/BackBtn/BackBtn"
+import BackBtn from "../../../components/BackBtn/BackBtn"
 export async function generateMetadata({ params }) {
     const postItem = await getPostDetails(params?.id)
     return {

@@ -1,26 +1,44 @@
 'use client'
-import { signOut, useSession } from 'next-auth/react'
-import './Header.css'
-import { useRouter } from "next/navigation";
+import { signOut, useSession } from 'next-auth/react';
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from 'react';
+import './header.css'
 const Header = () => {
-    const session= useSession()
-    const router =useRouter()
-    console.log(session)
+    //Yes! NextAuth checks the session on every page where you use useSession().
+    const { data: session, status } = useSession(); // Get session data and status
+    const router = useRouter();
+    const pathname = usePathname(); // Get current route
     useEffect(() => {
-    
-     if(session?.data){
-        router.push('/')
-     }else{
-        router.push('/login')
-     }
-    },[session.data])
-    return(
-<><div className="blogs_header"><div className="blogs_header_layout"></div> </div>
-<h3>{session.data ? `userName: ${session.data.user.name}` : 'PLease Login First To Can Access Posts App' }</h3>
-{session.data && (<button onClick={(e) => signOut()} style={{cursor:'pointer'}}>SignOut From Github</button>)}
-</>
+        if (status === "loading") return; // Wait until session is checked
 
-    )
-}
-export default Header
+        // ✅ If no session & not already on /login → Redirect to login
+        if (!session ) {
+            router.replace('/login');
+        }
+
+        // ✅ If there is a session & user has NOT been redirected before → Redirect to home
+        if (session && pathname=='/login') {
+            router.replace('/');
+           
+        }
+
+    }, [session, status, pathname]);
+    if (status === "loading") {
+        return <p>Loading...</p>; // Prevent flickering while session is being checked
+    }
+
+    return (
+        <>
+            <div className="blogs_header">
+                <div className="blogs_header_layout"></div>
+            </div>
+            <h3>{session ? `User Name: ${session.user.name}` : 'Please login first to access the Posts App'}</h3>
+            {session && <button onClick={() => signOut()} style={{ cursor: 'pointer' }}>Sign Out</button>}
+        </>
+    );
+};
+
+export default Header;
+
+
+    //Yes! NextAuth checks the session on every page where you use useSession().

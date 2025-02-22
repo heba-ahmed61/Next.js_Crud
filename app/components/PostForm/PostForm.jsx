@@ -1,5 +1,5 @@
 "use client";
-import { addPost , editPost} from "@/app/actions/serverActions";
+import { addPost , editPost} from "../../actions/serverActions";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { usePathname, useRouter } from "next/navigation";
