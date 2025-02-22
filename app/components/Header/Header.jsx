@@ -17,7 +17,7 @@ const Header = () => {
     },[session.data])
     return(
 <><div className="blogs_header"><div className="blogs_header_layout"></div> </div>
-<h3>{session.data ? `useName: ${session.data.user.name}` : 'PLease Login First To Can Access Posts App' }</h3>
+<h3>{session.data ? `userName: ${session.data.user.name}` : 'PLease Login First To Can Access Posts App' }</h3>
 {session.data && (<button onClick={(e) => signOut()} style={{cursor:'pointer'}}>SignOut From Github</button>)}
 </>
 
