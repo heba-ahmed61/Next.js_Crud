@@ -1,10 +1,18 @@
+export const dynamic = 'force-static'
 import Link from "next/link";
 import PostCard from "../components/PostCard/PostCard";
 import { fetchPosts } from "../actions/apis";
 import  './page.css'
 import PaginationComponent from "../components/Pagination/Pagination";
+import { customFetch } from "../api/customFetch";
 const Posts = async ({searchParams}) => {
-  const posts = await fetchPosts(searchParams?.page);
+   const posts = await fetchPosts(searchParams?.page);
+//   const posts = await customFetch('http://localhost:5000/posts?_page=1', {
+//     method: 'GET',
+//     next: { tags: ['posts'] }
+// });
+
+  console.log('posts', posts)
   return (
     <>
     <Link href={'/about'} >about</Link>

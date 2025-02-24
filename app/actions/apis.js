@@ -3,7 +3,7 @@
 export const fetchPosts = async (page) => {
   try {
       const res = await fetch(`http://localhost:5000/posts?_page=${Number(page) || 1}`, {
-      cache: "no-cache",
+
       next:{
         tags:['posts']
       }
@@ -23,7 +23,7 @@ export const fetchPosts = async (page) => {
 export const getPostDetails = async (id) => {
   try {
     const res = await fetch(`http://localhost:5000/posts/${id}`, {
-      cache: "no-cache",
+      
     });
     if (!res.ok) {
       throw new Error("Failed to fetch data");

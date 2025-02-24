@@ -1,6 +1,7 @@
 "use server";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import { customFetch } from "../api/customFetch";
 // Adding Post Function Starts
 export const addPost = async (values) => {
    const res = await fetch(`http://localhost:5000/posts`,
@@ -9,12 +10,14 @@ export const addPost = async (values) => {
        body:JSON.stringify(values),
      });
      if(res?.ok){
-        revalidateTag("posts");   
+        revalidateTag("posts");
+        redirect('/')   
       }
       return{
         data :await res.json(),
         ok:res?.ok
       }
+      
 }
 // Adding Post Function Ends
 
@@ -26,7 +29,8 @@ export const editPost = async (values,id) => {
       body:JSON.stringify(values),
     });
     if(res?.ok){
-       revalidateTag("posts");   
+       revalidateTag("posts");  
+       redirect(`/posts/details/${id}`) 
      }
      return{
        data :await res.json(),
@@ -43,6 +47,7 @@ export const deletePost = async (id) => {
   );
   if(res?.ok){
     revalidateTag("posts");
+    redirect(`/`) 
   } 
   return{
     data :await res.json(),
