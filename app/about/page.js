@@ -1,52 +1,53 @@
 //to force static route
- export const dynamic = "force-static";
-import {customFetch} from '../api/customFetch'
-const About = async () => {
-  const data = await customFetch('https://jsonplaceholder.typicode.com/posts', {method: 'GET'})
-    return(
-         <div>{data?.map(item => (<h3 key={item.id}>{item.title}</h3>))} </div>
+//  export const dynamic = "force-static";
+// import {customFetch} from '../api/customFetch'
+// const About = async () => {
+//   const data = await customFetch('https://jsonplaceholder.typicode.com/posts', {method: 'GET'})
+//     return(
+//          <div>{data?.map(item => (<h3 key={item.id}>{item.title}</h3>))} </div>
         
-    )
-}
-export default About 
+//     )
+// }
+// export default About 
 
 
-// "use client";
+"use client";
 
-// import { useEffect, useState } from "react";
-// import { customFetch } from "../api/customFetch";
+import { useEffect, useState } from "react";
+import { customFetch } from "../api/customFetch";
 
-// const About = () => {
-//   const [data, setData] = useState([]);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const result = await customFetch("https://jsonplaceholder.typicode.com/posts", {
-//           method: "GET",
-//         });
-//         // setData(result);
-//         console.log(result)
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
+const About =  () => {
+  const [data, setData] = useState([]);
 
-//     fetchData();
-//   }, []);
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await customFetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "GET",
+        });
+         setData(result);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-//   return (
-//     <div>
-//       {data.length > 0 ? (
-//         data.map((item) => <h3 key={item.id}>{item.title}</h3>)
-//       ) : (
-//         <p>Loading...</p>
-//       )}
-//     </div>
-//   );
-// };
+    fetchData();
+  }, []);
 
-// export default About;
+  return (
+    <div>
+      {data.length > 0 ? (
+        data.map((item) => <h3 key={item.id}>{item.title}</h3>)
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+};
+
+export default About;
 
 
 
