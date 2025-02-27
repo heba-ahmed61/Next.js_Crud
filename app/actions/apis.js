@@ -3,7 +3,7 @@
 export const fetchPosts = async (page) => {
   try {
       const res = await fetch(`http://localhost:5000/posts?_page=${Number(page) || 1}`, {
-
+      
       next:{
         tags:['posts']
       }

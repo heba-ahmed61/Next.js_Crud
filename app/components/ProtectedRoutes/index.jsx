@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 export default function ProtectedRoutes({ children }) {
   // ok at app renderd for first time layout show header and then protected component run so user is not login yet so i redirect to /login and when user loged and navigate to anthor route the state of usesession changed so when state change the protected component run again and make check again . so with every route nextauth update session state to know is session expired or not for example
-  //Yes! NextAuth checks the session on every page where you use useSession().
+  //Yes! NextAuth checks the session on every page where you use useSession() at request from network when .
   const { data: session, status } = useSession(); // Get session data and status
   const router = useRouter();
   const pathname = usePathname(); // Get current route
