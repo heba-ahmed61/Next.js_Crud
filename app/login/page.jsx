@@ -1,5 +1,6 @@
 'use client';
 import { signIn } from 'next-auth/react';
+import './login.css';
 const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +17,14 @@ const LoginPage = () => {
     }
   };
   return (
-    <>
+    <div className="login-wrapper">
+      <div className="blogs_header_layout"></div>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '20px' }}>
+        <h2>Sign In</h2>
+        <div>
           <input type="email" placeholder="enter email" name="email" required />
         </div>
-        <div style={{ marginBottom: '20px' }}>
+        <div>
           <input
             type="password"
             placeholder="enter password"
@@ -29,20 +32,19 @@ const LoginPage = () => {
             required
           />
         </div>
-        <button type="submit" style={{ marginBottom: '20px' }}>
+        <button type="submit" className="submit button">
           login
         </button>
+        <div>
+          <button
+            onClick={(e) => signIn('github')}
+            style={{ cursor: 'pointer' }}
+          >
+            Login With Github
+          </button>
+        </div>
       </form>
-
-      <div>
-        <button
-          onClick={(e) => signIn('github')}
-          style={{ cursor: 'pointer', marginRight: '20px' }}
-        >
-          Login With Github
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 export default LoginPage;

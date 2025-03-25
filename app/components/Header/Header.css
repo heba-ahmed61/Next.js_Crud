@@ -14,3 +14,18 @@
     width: 100%;
     background-color:rgba(0, 0, 0,.45);
 }
+.user-data{
+    padding: 10px 25px;
+    
+}
+.user-data button{
+    background: #2d5061;
+    border: 1px solid #2d5061;
+    color: #fff;
+    height: 40px;
+    padding: 0 20px;
+    margin: 5px auto;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+}

@@ -3,6 +3,7 @@
 import { signOut, useSession } from 'next-auth/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import Header from '../Header/Header';
 
 export default function ProtectedRoutes({ children }) {
   // How useSession() Handles Requests
@@ -41,7 +42,13 @@ export default function ProtectedRoutes({ children }) {
     }
   }, [session, status]);
   console.log(session);
-  return <>{children}</>;
+  return (
+    <>
+      {' '}
+      {/* <Header /> */}
+      {children}
+    </>
+  );
 }
 
 // Since your About page is a Server Component but wrapped by a Client Component (ProtectedRoutes) that uses useSession(), NextAuth will NOT make another request to /api/auth/session when navigating to it.

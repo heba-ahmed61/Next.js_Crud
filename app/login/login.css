@@ -1,0 +1,62 @@
+.login-wrapper{
+    background-image: url('../../public/images/blog.jpg');
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    
+}
+.blogs_header_layout{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 0, 0,.45);
+}
+.login-wrapper form{
+    background: white;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px #00000029;
+    position: relative;
+    z-index: 2;
+}
+.login-wrapper form >div{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+.login-wrapper form input{
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+    margin: 0 auto 10px auto;
+    height: 45px;
+    padding: 0 10px;
+    outline: none;
+}
+.login-wrapper form  button{
+    background: #2d5061;
+    border: 1px solid #2d5061;
+    color: #fff;
+    height: 40px;
+    padding: 0 20px;
+    margin: 5px auto;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+    
+}
