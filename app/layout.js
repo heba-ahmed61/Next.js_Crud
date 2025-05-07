@@ -23,9 +23,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>
+        {/* <Providers>
           <ProtectedRoutes>{children}</ProtectedRoutes>
-        </Providers>
+        </Providers> */}
+        {children}
       </body>
     </html>
   );
