@@ -9,3 +9,8 @@ it('testing for existing item at build time at dynamic route', () => {
   cy.visit('/posts/details/2025-02-24T12:00:38.403Z');
   cy.findByRole('link', { name: /first item from dev/i }).should('exist');
 });
+
+it('testing for not existing item at build time at dynamic route', () => {
+  cy.visit('/posts/details/61');
+  cy.findByRole('link', { name: /first item from dev/i }).should('not.exist');
+});
