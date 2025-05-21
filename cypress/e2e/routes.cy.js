@@ -19,19 +19,27 @@ it('testing for not existing item at build time at dynamic route', () => {
 });
 
 // testing for existing item but after build time so now the version of build i run not have this item at dynamic route
-// it('testing for existing item but after build item so now the version of build I run not have this item at dynamic route', () => {
-//   const data = {
-//     userId: 1,
-//     id: 62,
-//     title: 'add item not at build for test',
-//     body: 'add item not at build for test',
-//   };
+it('testing for existing item but after build item so now the version of build I run not have this item at dynamic route', () => {
+  const data = {
+    userId: 1,
+    id: 62,
+    title: 'add item not at build for test',
+    body: 'add item not at build for test',
+  };
 
-//   // Pass the data directly to the task
-//   cy.task('addItem', data).then(() => {
-//     cy.visit('/posts/details/62'); // Visit the page after the item has been added
-//     cy.findAllByRole('heading', {
-//       name: /add item not at build for test/i,
-//     }).should('exist'); // Assert that the heading exists
-//   });
-// });
+  // Pass the data directly to the task
+  cy.task('addItem', data).then(() => {
+    cy.visit('/posts/details/62'); // Visit the page after the item has been added
+    cy.findAllByRole('heading', {
+      name: /add item not at build for test/i,
+    }).should('exist'); // Assert that the heading exists
+  });
+});
+
+//note
+// cy.request('POST', 'http://localhost:8888/users/admin', { name: 'Jane' }).then(
+//   (response) => {
+//     // response.body is automatically serialized into JSON
+//     expect(response.body).to.have.property('name', 'Jane') // true
+//   }
+// )

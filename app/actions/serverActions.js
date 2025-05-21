@@ -8,10 +8,13 @@ export const addPost = async (values) => {
     method: 'POST',
     body: JSON.stringify(values),
   });
-  if (res?.ok) {
-    // revalidateTag('posts'); // look at note at bottom this for cache dynamic response at ssg
-    // then to cahe use isr and remove revalidatetag or just remove this and add force-cache to get api
-    redirect('/');
+  // if (res?.ok) {
+  //   // revalidateTag('posts'); // look at note at bottom this for cache dynamic response at ssg
+  //   // then to cahe use isr and remove revalidatetag or just remove this and add force-cache to get api
+  //   redirect('/');
+  // }
+  if (res?.ok && typeof window !== 'undefined') {
+    redirect('/'); // ✅ Only redirect in browser
   }
   return {
     data: await res.json(),

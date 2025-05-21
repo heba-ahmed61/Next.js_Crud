@@ -5,9 +5,10 @@ export const fetchPosts = async (page) => {
       `http://localhost:5000/posts?_page=${Number(page) || 1}`,
 
       {
-        cache: 'force-cache',
+        // cache: 'force-cache',
         next: {
           tags: ['posts'],
+          revalidate: 30,
         },
       }
     );
