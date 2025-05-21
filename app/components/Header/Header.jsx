@@ -4,7 +4,7 @@ import { signOut, useSession } from 'next-auth/react';
 import './Header.css';
 
 const Header = () => {
-  // const { data: session } = useSession(); // Get session data
+  const { data: session } = useSession(); // Get session data
 
   return (
     <>
@@ -12,7 +12,7 @@ const Header = () => {
         <div className="blogs_header_layout"></div>
       </div>
       <div className="user-data">
-        {/* <h3>
+        <h3>
           {session
             ? `UserName: ${session.user.name}`
             : 'Please login to access Posts'}
@@ -22,7 +22,7 @@ const Header = () => {
           <button onClick={() => signOut()} style={{ cursor: 'pointer' }}>
             Sign Out
           </button>
-        )} */}
+        )}
       </div>
     </>
   );
